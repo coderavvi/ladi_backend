@@ -14,6 +14,8 @@ async function chatsController(req, res) {
       return res.status(400).json({ error: 'message cannot be empty' });
     }
 
+     const safeHistory = Array.isArray(history) ? history : [];
+
     //  handle chats
     try {
       const messages = [
