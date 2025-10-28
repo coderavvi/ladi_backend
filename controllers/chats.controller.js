@@ -21,7 +21,7 @@ async function sendMessagesController(req, res) {
 
     return res.status(200).send({ content: agentResponse, role: 'assistant' });
   } catch (error) {
-    res.status(500).json({ error: 'Something went wrong' });
+    res.status(500).json({ error: error.message || 'Something went wrong' });
   }
 }
 
