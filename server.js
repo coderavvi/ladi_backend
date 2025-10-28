@@ -17,6 +17,11 @@ app.use(express.json());
 
 const PORT = process.env.PORT;
 
+//api health
+app.use('/health', (req, res) => {
+  res.json({ message: 'API ok' });
+});
+
 // chat management
 app.use('/chats', ChatsRouter);
 
@@ -24,7 +29,7 @@ app.use('/chats', ChatsRouter);
 app.use('/users', UsersRouter);
 
 // starting up the server
-app.listen(PORT, '0.0.0.0', (err) => {
+app.listen(PORT, (err) => {
   console.log(`Server listening on port ${PORT}`);
 
   if (err) {
